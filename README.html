@@ -11,7 +11,7 @@
 
 <meta name="author" content="El Tali" />
 
-<meta name="date" content="2024-08-26" />
+<meta name="date" content="2024-08-27" />
 
 <title>Prácticas de aula 2 (PA02). Mapa geomorfológico de RD y Elevaciones Geomorfología (GEO-131) Universidad Autónoma de Santo Domingo (UASD) Semestre 2024-02</title>
 
@@ -427,7 +427,7 @@ display: none;
 
 <h1 class="title toc-ignore">Prácticas de aula 2 (PA02). Mapa geomorfológico de RD y Elevaciones<small><br>Geomorfología (GEO-131)<br>Universidad Autónoma de Santo Domingo (UASD)<br>Semestre 2024-02</small></h1>
 <h4 class="author">El Tali</h4>
-<h4 class="date">2024-08-26</h4>
+<h4 class="date">2024-08-27</h4>
 
 </div>
 
@@ -452,7 +452,8 @@ display: none;
 <ul>
 <li><a href="#fórmula-de-la-prueba-t-para-muestras-pareadas" id="toc-fórmula-de-la-prueba-t-para-muestras-pareadas">Fórmula de la Prueba t para Muestras Pareadas</a></li>
 <li><a href="#ejemplo-práctico" id="toc-ejemplo-práctico">Ejemplo Práctico</a></li>
-<li><a href="#ejercicio" id="toc-ejercicio">Ejercicio</a></li>
+<li><a href="#recapitulando" id="toc-recapitulando">Recapitulando</a></li>
+<li><a href="#cómo-se-haría-en-r" id="toc-cómo-se-haría-en-r">¿Cómo se haría en R?</a></li>
 </ul></li>
 <li><a href="#referencias" id="toc-referencias">Referencias</a></li>
 </ul></li>
@@ -515,8 +516,8 @@ display: none;
 <table>
 <thead>
 <tr class="header">
-<th>X (Longitud)</th>
-<th>Y (Latitud)</th>
+<th>X</th>
+<th>Y</th>
 <th>Z (MTN) (m)</th>
 <th>Z (SRTM) (m)</th>
 </tr>
@@ -600,12 +601,12 @@ df = n - 1
 </div>
 <div id="ejemplo-práctico" class="section level3">
 <h3>Ejemplo Práctico</h3>
-<p>Supongamos que tienes los siguientes datos:</p>
+<p>Supongamos que tienes los siguientes datos (debes hacerlo con tus datos):</p>
 <table>
 <thead>
 <tr class="header">
-<th>X (Longitud)</th>
-<th>Y (Latitud)</th>
+<th>X</th>
+<th>Y</th>
 <th>Z (MTN) (m)</th>
 <th>Z (SRTM) (m)</th>
 </tr>
@@ -686,42 +687,33 @@ t = \frac{1.71}{1.89 / \sqrt{7}} = 2.16
 df = 7 - 1 = 6
 \]</span></p>
 </div>
-<div id="ejercicio" class="section level3">
-<h3>Ejercicio</h3>
+<div id="recapitulando" class="section level3">
+<h3>Recapitulando</h3>
 <p>Usando tus propios datos de elevaciones (Z (MTN) y Z (SRTM)):</p>
 <ol>
 <li>Calcula las diferencias <span class="math inline">\(D_i\)</span> entre Z (MTN) y Z (SRTM).</li>
 <li>Calcula la media de las diferencias <span class="math inline">\(\bar{D}\)</span>.</li>
 <li>Calcula la desviación estándar de las diferencias <span class="math inline">\(s_D\)</span>.</li>
-<li>Calcula la estadística t.</li>
+<li>Calcula la estadística <em>t</em>.</li>
 <li>Determina los grados de libertad.</li>
 <li>Compara el valor de t calculado con el valor crítico y concluye si hay una diferencia significativa entre las elevaciones proporcionadas por el MTN y el SRTM.</li>
 </ol>
-<pre class="r"><code># Ejemplo en R (opcional, si deseas que también usen R para comprobar sus resultados)
-# Datos de ejemplo
-Z_MTN &lt;- c(500, 480, 460, 445, 430, 420, 410)
-Z_SRTM &lt;- c(495, 475, 462, 443, 428, 419, 408)
-
+</div>
+<div id="cómo-se-haría-en-r" class="section level3">
+<h3>¿Cómo se haría en R?</h3>
+<p>Presiona el botón <code>SHOW</code> si el código no está visible.</p>
+<pre class="r"><code># Ejemplo en R
+# Los datos deben colocarse dentro de c() separados por coma
+# por ejemplo c(100, 205, 112, ..., 230)
+Z_MTN &lt;- c()
+Z_SRTM &lt;- c()
 t.test(Z_MTN, Z_SRTM, paired = TRUE)</code></pre>
-<pre><code>## 
-##  Paired t-test
-## 
-## data:  Z_MTN and Z_SRTM
-## t = 2.3522, df = 6, p-value = 0.05689
-## alternative hypothesis: true mean difference is not equal to 0
-## 95 percent confidence interval:
-##  -0.08629429  4.37200858
-## sample estimates:
-## mean difference 
-##        2.142857</code></pre>
 <p><strong>Nota</strong>: los cálculos se pueden realizar a mano o con una calculadora del teléfono, utilizando las fórmulas proporcionadas.</p>
 </div>
 </div>
 <div id="referencias" class="section level2">
 <h2>Referencias</h2>
-<p>De Pedraza Gilsanz, J. (1996): “Geomorfología: principios, métodos y aplicaciones”, Editorial Rueda, Madrid</p>
-<p>Díaz de Neira, A. (2010): Hoja y Memoria de Santo Domingo (6271). Mapa geomorfológico y de procesos activos susceptibles de constituir riesgo geológico de la República Dominicana, escala 1:100,000. Consorcio IGME-BRGM-INYPSA. Santo Domingo.</p>
-<p>Gutiérrez Elorza, M. (2008). Geomorfologı́a. Pearson/Prentice Hall.</p>
+<p>Triola, M. F. (2012). Estadistica. España: Pearson Education.</p>
 </div>
 </div>
 

@@ -3,7 +3,7 @@ Elevaciones<small><br>Geomorfología (GEO-131)<br>Universidad Autónoma de
 Santo Domingo (UASD)<br>Semestre 2024-02</small>
 ================
 El Tali
-2024-08-26
+2024-08-27
 
 Versión HTML (quizá más legible),
 [aquí](https://geomorfologia-master.github.io/mapa-geomorfologico-rd-y-elevaciones/README.html)
@@ -174,15 +174,15 @@ realizarán los cálculos manualmente.
 
 Completa una tabla como la siguiente con los datos obtenidos:
 
-| X (Longitud) | Y (Latitud) | Z (MTN) (m) | Z (SRTM) (m) |
-|--------------|-------------|-------------|--------------|
-|              |             |             |              |
-|              |             |             |              |
-|              |             |             |              |
-|              |             |             |              |
-|              |             |             |              |
-|              |             |             |              |
-|              |             |             |              |
+| X   | Y   | Z (MTN) (m) | Z (SRTM) (m) |
+|-----|-----|-------------|--------------|
+|     |     |             |              |
+|     |     |             |              |
+|     |     |             |              |
+|     |     |             |              |
+|     |     |             |              |
+|     |     |             |              |
+|     |     |             |              |
 
 ### Paso 2: Obtención de Elevaciones desde el SRTM
 
@@ -225,17 +225,18 @@ $$
 
 ### Ejemplo Práctico
 
-Supongamos que tienes los siguientes datos:
+Supongamos que tienes los siguientes datos (debes hacerlo con tus
+datos):
 
-| X (Longitud) | Y (Latitud) | Z (MTN) (m) | Z (SRTM) (m) |
-|--------------|-------------|-------------|--------------|
-| 123456       | 789012      | 500         | 495          |
-| 123457       | 789013      | 480         | 475          |
-| 123458       | 789014      | 460         | 462          |
-| 123459       | 789015      | 445         | 443          |
-| 123460       | 789016      | 430         | 428          |
-| 123461       | 789017      | 420         | 419          |
-| 123462       | 789018      | 410         | 408          |
+| X      | Y      | Z (MTN) (m) | Z (SRTM) (m) |
+|--------|--------|-------------|--------------|
+| 123456 | 789012 | 500         | 495          |
+| 123457 | 789013 | 480         | 475          |
+| 123458 | 789014 | 460         | 462          |
+| 123459 | 789015 | 445         | 443          |
+| 123460 | 789016 | 430         | 428          |
+| 123461 | 789017 | 420         | 419          |
+| 123462 | 789018 | 410         | 408          |
 
 1.  **Calcular las diferencias $D_i$ entre Z (MTN) y Z (SRTM) para cada
     punto**:
@@ -268,51 +269,35 @@ $$
 df = 7 - 1 = 6
 $$
 
-### Ejercicio
+### Recapitulando
 
 Usando tus propios datos de elevaciones (Z (MTN) y Z (SRTM)):
 
 1.  Calcula las diferencias $D_i$ entre Z (MTN) y Z (SRTM).
 2.  Calcula la media de las diferencias $\bar{D}$.
 3.  Calcula la desviación estándar de las diferencias $s_D$.
-4.  Calcula la estadística t.
+4.  Calcula la estadística *t*.
 5.  Determina los grados de libertad.
 6.  Compara el valor de t calculado con el valor crítico y concluye si
     hay una diferencia significativa entre las elevaciones
     proporcionadas por el MTN y el SRTM.
 
-``` r
-# Ejemplo en R (opcional, si deseas que también usen R para comprobar sus resultados)
-# Datos de ejemplo
-Z_MTN <- c(500, 480, 460, 445, 430, 420, 410)
-Z_SRTM <- c(495, 475, 462, 443, 428, 419, 408)
+### ¿Cómo se haría en R?
 
+Presiona el botón `SHOW` si el código no está visible.
+
+``` r
+# Ejemplo en R
+# Los datos deben colocarse dentro de c() separados por coma
+# por ejemplo c(100, 205, 112, ..., 230)
+Z_MTN <- c()
+Z_SRTM <- c()
 t.test(Z_MTN, Z_SRTM, paired = TRUE)
 ```
-
-    ## 
-    ##  Paired t-test
-    ## 
-    ## data:  Z_MTN and Z_SRTM
-    ## t = 2.3522, df = 6, p-value = 0.05689
-    ## alternative hypothesis: true mean difference is not equal to 0
-    ## 95 percent confidence interval:
-    ##  -0.08629429  4.37200858
-    ## sample estimates:
-    ## mean difference 
-    ##        2.142857
 
 **Nota**: los cálculos se pueden realizar a mano o con una calculadora
 del teléfono, utilizando las fórmulas proporcionadas.
 
 ## Referencias
 
-De Pedraza Gilsanz, J. (1996): “Geomorfología: principios, métodos y
-aplicaciones”, Editorial Rueda, Madrid
-
-Díaz de Neira, A. (2010): Hoja y Memoria de Santo Domingo (6271). Mapa
-geomorfológico y de procesos activos susceptibles de constituir riesgo
-geológico de la República Dominicana, escala 1:100,000. Consorcio
-IGME-BRGM-INYPSA. Santo Domingo.
-
-Gutiérrez Elorza, M. (2008). Geomorfologı́a. Pearson/Prentice Hall.
+Triola, M. F. (2012). Estadistica. España: Pearson Education.
