@@ -1,5 +1,5 @@
 ---
-title: "Prácticas de aula 2 (PA02). Mapa geomorfológico de RD y Elevaciones<small><br>Geomorfología (GEO-131)<br>Universidad Autónoma de Santo Domingo (UASD)<br>Semestre 2024-02</small>"
+title: "Prácticas de aula 2 (PA02). Mapa geomorfológico de RD y Elevaciones<small><br>Geomorfología (GEO-114)<br>Universidad Autónoma de Santo Domingo (UASD)<br>Semestre 2024-02</small>"
 author: "El Tali"
 date: "`r format(Sys.Date(), '%Y-%m-%d')`"
 output:
@@ -138,6 +138,8 @@ $$
 df = n - 1
 $$
 
+
+
 ### Ejemplo Práctico
 
 Supongamos que tienes los siguientes datos (debes hacerlo con tus datos):
@@ -181,6 +183,16 @@ $$
 $$
 df = 7 - 1 = 6
 $$
+
+6. **Determinación del valor crítico:**
+
+Para un nivel de significancia $\alpha$ de 0.05 y 6 grados de libertad, el valor crítico de $t$ en una prueba de dos colas es aproximadamente ±2.447 (el valor mínimo lo puedes obtener en R con el código `qt(p = 0.025, df = 6)`, o usando `qt(p = 0.975, df = 6, lower.tail = F)`, y el valor máximo con `qt(p = 0.975, df = 6)`, pero también lo puedes buscar en tablas estadísticas). Esto significa que si el valor del estadístico de prueba obtenido es mayor que +2.447, o menor que -2.447, podemos rechazar la hipótesis nula de igualdad de medias. En caso contrario, no podemos rechazar la hipótesis nula de igual de medias. Si lo hiciéramos a través del valor $P$, rechazaríamos la hipótesis nula si el valor $P$ fuese menor que $\alpha$ (que en nuestro caso, elegimos 0.05), y no rechazaríamos la hipótesis nula si el valor $P$ fuese mayor que $\alpha$.
+
+7. **Conclusión:**
+
+Dado que el valor calculado de $t$ (+2.16) es menor que el valor crítico de $t$ por la derecha (+2.447), no podemos rechazar la hipótesis nula. Esto significa que no hay diferencias significativas entre las medias de las elevaciones obtenidas por medio del mapa topográfico nacional (`Z (MTN)`) y por medio del modelo digital de elevaciones SRTM (`Z (SRTM)`) en este ejemplo.
+
+
 
 ### Recapitulando
 
