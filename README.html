@@ -662,23 +662,96 @@ df = n - 1
 <p><span class="math display">\[
 D = Z_{MTN} - Z_{SRTM}
 \]</span></p>
+<table>
+<thead>
+<tr class="header">
+<th>Z (MTN)</th>
+<th>Z (SRTM)</th>
+<th>D (MTN - SRTM)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>500</td>
+<td>495</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>480</td>
+<td>475</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>460</td>
+<td>462</td>
+<td>-2</td>
+</tr>
+<tr class="even">
+<td>445</td>
+<td>443</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>430</td>
+<td>428</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>420</td>
+<td>419</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>410</td>
+<td>408</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
 <ol start="2">
 <li><strong>Calcular la media de las diferencias <span class="math inline">\(\bar{D}\)</span></strong>:</li>
 </ol>
 <p><span class="math display">\[
-\bar{D} = \frac{\sum D_i}{n} = \frac{(500-495) + (480-475) + (460-462) + \cdots}{7} = 1.71
+\bar{D} = \frac{\sum D_i}{n} = \frac{5 + 5 - 2 + 2 + 2 + 1 + 2}{7} = \frac{15}{7} \approx 2.14
 \]</span></p>
 <ol start="3">
-<li><strong>Calcular la desviación estándar de las diferencias <span class="math inline">\(s_D\)</span></strong>:</li>
+<li><strong>Calcular la desviación estándar de las diferencias <span class="math inline">\(s_D\)</span></strong> usando la fórmula:</li>
 </ol>
 <p><span class="math display">\[
-s_D = \sqrt{\frac{\sum (D_i - \bar{D})^2}{n - 1}} = 1.89
+s_D = \sqrt{\frac{\sum (D_i - \bar{D})^2}{n - 1}}
+\]</span></p>
+<p>Primero, calcula la suma de los cuadrados de las diferencias respecto a la media de las diferencias:</p>
+<p><span class="math display">\[
+s_D^2 = \frac{\sum (D_i - \bar{D})^2}{n - 1}
+\]</span></p>
+<p>Donde:</p>
+<p><span class="math display">\[
+\sum (D_i - \bar{D})^2 = (5 - 2.14)^2 + (5 - 2.14)^2 + (-2 - 2.14)^2 + (2 - 2.14)^2 + (2 - 2.14)^2 + (1 - 2.14)^2 + (2 - 2.14)^2
+\]</span></p>
+<p>Calcula cada término:</p>
+<p><span class="math display">\[
+(5 - 2.14)^2 \approx 8.16, \quad (5 - 2.14)^2 \approx 8.16, \quad (-2 - 2.14)^2 \approx 17.88
+\]</span></p>
+<p><span class="math display">\[
+(2 - 2.14)^2 \approx 0.02, \quad (2 - 2.14)^2 \approx 0.02, \quad (1 - 2.14)^2 \approx 1.31, \quad (2 - 2.14)^2 \approx 0.02
+\]</span></p>
+<p>Suma:</p>
+<p><span class="math display">\[
+\sum (D_i - \bar{D})^2 \approx 35.57
+\]</span></p>
+<p>Luego, la varianza de las diferencias:</p>
+<p><span class="math display">\[
+s_D^2 = \frac{35.57}{7 - 1} \approx 5.93
+\]</span></p>
+<p>Y la desviación estándar:</p>
+<p><span class="math display">\[
+s_D = \sqrt{5.93} \approx 2.43
 \]</span></p>
 <ol start="4">
 <li><strong>Calcular la estadística t</strong>:</li>
 </ol>
 <p><span class="math display">\[
-t = \frac{1.71}{1.89 / \sqrt{7}} = 2.16
+t = \frac{\bar{D}}{s_D / \sqrt{n}} = \frac{2.14}{2.43 / \sqrt{7}} = \frac{2.14}{0.92} \approx 2.35
 \]</span></p>
 <ol start="5">
 <li><strong>Grados de libertad</strong>:</li>
@@ -693,7 +766,7 @@ df = 7 - 1 = 6
 <ol start="7">
 <li><strong>Conclusión:</strong></li>
 </ol>
-<p>Dado que el valor calculado de <span class="math inline">\(t\)</span> (+2.16) es menor que el valor crítico de <span class="math inline">\(t\)</span> por la derecha (+2.447), no podemos rechazar la hipótesis nula. Esto significa que no hay diferencias significativas entre las medias de las elevaciones obtenidas por medio del mapa topográfico nacional (<code>Z (MTN)</code>) y por medio del modelo digital de elevaciones SRTM (<code>Z (SRTM)</code>) en este ejemplo.</p>
+<p>Dado que el valor calculado de <span class="math inline">\(t\)</span> (+2.352) es menor que el valor crítico de <span class="math inline">\(t\)</span> por la derecha (+2.447) y mayor que el valor crítico por la izquierda, no podemos rechazar la hipótesis nula. Esto significa que no hay diferencias significativas entre las medias de las elevaciones obtenidas por medio del mapa topográfico nacional (<code>Z (MTN)</code>) y por medio del modelo digital de elevaciones SRTM (<code>Z (SRTM)</code>) en este ejemplo.</p>
 </div>
 <div id="recapitulando" class="section level3">
 <h3>Recapitulando</h3>

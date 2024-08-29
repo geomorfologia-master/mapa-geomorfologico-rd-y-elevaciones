@@ -245,22 +245,74 @@ $$
 D = Z_{MTN} - Z_{SRTM}
 $$
 
+| Z (MTN) | Z (SRTM) | D (MTN - SRTM) |
+|---------|----------|----------------|
+| 500     | 495      | 5              |
+| 480     | 475      | 5              |
+| 460     | 462      | -2             |
+| 445     | 443      | 2              |
+| 430     | 428      | 2              |
+| 420     | 419      | 1              |
+| 410     | 408      | 2              |
+
 2.  **Calcular la media de las diferencias $\bar{D}$**:
 
 $$
-\bar{D} = \frac{\sum D_i}{n} = \frac{(500-495) + (480-475) + (460-462) + \cdots}{7} = 1.71
+\bar{D} = \frac{\sum D_i}{n} = \frac{5 + 5 - 2 + 2 + 2 + 1 + 2}{7} = \frac{15}{7} \approx 2.14
 $$
 
-3.  **Calcular la desviación estándar de las diferencias $s_D$**:
+3.  **Calcular la desviación estándar de las diferencias $s_D$** usando
+    la fórmula:
 
 $$
-s_D = \sqrt{\frac{\sum (D_i - \bar{D})^2}{n - 1}} = 1.89
+s_D = \sqrt{\frac{\sum (D_i - \bar{D})^2}{n - 1}}
+$$
+
+Primero, calcula la suma de los cuadrados de las diferencias respecto a
+la media de las diferencias:
+
+$$
+s_D^2 = \frac{\sum (D_i - \bar{D})^2}{n - 1}
+$$
+
+Donde:
+
+$$
+\sum (D_i - \bar{D})^2 = (5 - 2.14)^2 + (5 - 2.14)^2 + (-2 - 2.14)^2 + (2 - 2.14)^2 + (2 - 2.14)^2 + (1 - 2.14)^2 + (2 - 2.14)^2
+$$
+
+Calcula cada término:
+
+$$
+(5 - 2.14)^2 \approx 8.16, \quad (5 - 2.14)^2 \approx 8.16, \quad (-2 - 2.14)^2 \approx 17.88
+$$
+
+$$
+(2 - 2.14)^2 \approx 0.02, \quad (2 - 2.14)^2 \approx 0.02, \quad (1 - 2.14)^2 \approx 1.31, \quad (2 - 2.14)^2 \approx 0.02
+$$
+
+Suma:
+
+$$
+\sum (D_i - \bar{D})^2 \approx 35.57
+$$
+
+Luego, la varianza de las diferencias:
+
+$$
+s_D^2 = \frac{35.57}{7 - 1} \approx 5.93
+$$
+
+Y la desviación estándar:
+
+$$
+s_D = \sqrt{5.93} \approx 2.43
 $$
 
 4.  **Calcular la estadística t**:
 
 $$
-t = \frac{1.71}{1.89 / \sqrt{7}} = 2.16
+t = \frac{\bar{D}}{s_D / \sqrt{n}} = \frac{2.14}{2.43 / \sqrt{7}} = \frac{2.14}{0.92} \approx 2.35
 $$
 
 5.  **Grados de libertad**:
@@ -288,12 +340,13 @@ $\alpha$.
 
 7.  **Conclusión:**
 
-Dado que el valor calculado de $t$ (+2.16) es menor que el valor crítico
-de $t$ por la derecha (+2.447), no podemos rechazar la hipótesis nula.
-Esto significa que no hay diferencias significativas entre las medias de
-las elevaciones obtenidas por medio del mapa topográfico nacional
-(`Z (MTN)`) y por medio del modelo digital de elevaciones SRTM
-(`Z (SRTM)`) en este ejemplo.
+Dado que el valor calculado de $t$ (+2.352) es menor que el valor
+crítico de $t$ por la derecha (+2.447) y mayor que el valor crítico por
+la izquierda, no podemos rechazar la hipótesis nula. Esto significa que
+no hay diferencias significativas entre las medias de las elevaciones
+obtenidas por medio del mapa topográfico nacional (`Z (MTN)`) y por
+medio del modelo digital de elevaciones SRTM (`Z (SRTM)`) en este
+ejemplo.
 
 ### Recapitulando
 
