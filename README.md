@@ -1,16 +1,16 @@
-Prácticas de aula 2 (PA02). Mapa geomorfológico de RD y
+Práctica de aula 1 (PA01). Mapa geomorfológico de RD y
 Elevaciones<small><br>Geomorfología (GEO-114)<br>Universidad Autónoma de
-Santo Domingo (UASD)<br>Semestre 2024-02</small>
+Santo Domingo (UASD)<br>Semestre 2025-01</small>
 ================
 El Tali
-2024-08-29
+2025-02-03
 
 Versión HTML (quizá más legible),
 [aquí](https://geomorfologia-master.github.io/mapa-geomorfologico-rd-y-elevaciones/README.html)
 
 # Fecha/hora de entrega
 
-**26 de agosto de 2024, 7:59 pm.**
+**3 de febrero de 2025, 7:59 pm.**
 
 # Ejercicio 1. Mapa geomorfológico de RD
 
@@ -165,7 +165,9 @@ realizarán los cálculos manualmente.
 ### Paso 1: Selección del Mapa Topográfico Nacional
 
 1.  Selecciona cualquier hoja del Mapa Topográfico Nacional (MTN)
-    disponible en tu área de estudio.
+    disponible en tu área de estudio, o de un área que elijas, pero que
+    tenga topografía cambiante.
+
 2.  Identifica siete puntos de interés en la hoja del MTN. Para cada
     punto, registra las coordenadas X e Y en formato UTM (normalmente
     serán NAD27 o EPSG:26719); elige mejor intersecciones de
